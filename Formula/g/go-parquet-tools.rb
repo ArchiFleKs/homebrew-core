@@ -1,18 +1,18 @@
 class GoParquetTools < Formula
   desc "Utility to deal with Parquet data"
   homepage "https://github.com/hangxie/parquet-tools"
-  url "https://github.com/hangxie/parquet-tools/archive/refs/tags/v1.28.3.tar.gz"
-  sha256 "d71530927d732460f9ea4f7696c7bb51334ce2e7024c5b77ac14d9baa090198b"
+  url "https://github.com/hangxie/parquet-tools/archive/refs/tags/v1.29.3.tar.gz"
+  sha256 "b2108b0929fe4b6b39af55bd6e8c55e0b3bb0eefe4f337600479213ab37eb54f"
   license "BSD-3-Clause"
   head "https://github.com/hangxie/parquet-tools.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1e202ec9f273af9ecba0159e3c8f82ab11f3f4dde657f38fc26e846ab1c59ecc"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1e202ec9f273af9ecba0159e3c8f82ab11f3f4dde657f38fc26e846ab1c59ecc"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "1e202ec9f273af9ecba0159e3c8f82ab11f3f4dde657f38fc26e846ab1c59ecc"
-    sha256 cellar: :any_skip_relocation, sonoma:        "cc4eef88fbb93fc3ecf371e6bc15e739d261599d826c4121a41b7f48c3f49984"
-    sha256 cellar: :any_skip_relocation, ventura:       "cc4eef88fbb93fc3ecf371e6bc15e739d261599d826c4121a41b7f48c3f49984"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ae48db02e01376961e43a83331de42f7c6677422db8490bb19b178b09b9c7ec3"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3f0cb2aec743093d12b00024fef67d1773ab0bd546de90ef71427b68336ca1a7"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3f0cb2aec743093d12b00024fef67d1773ab0bd546de90ef71427b68336ca1a7"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "3f0cb2aec743093d12b00024fef67d1773ab0bd546de90ef71427b68336ca1a7"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2cda385ebf4cc127922d9ba0697a17fff63c77e844e5cc4fe9132687b3365346"
+    sha256 cellar: :any_skip_relocation, ventura:       "2cda385ebf4cc127922d9ba0697a17fff63c77e844e5cc4fe9132687b3365346"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "595ff2bf1f51e2fc6296f67ab5e2538b8818bcd0b13685bf08ebaf241a8b08be"
   end
 
   depends_on "go" => :build
@@ -36,6 +36,6 @@ class GoParquetTools < Formula
     resource("test-parquet").stage testpath
 
     output = shell_output("#{bin}/parquet-tools schema #{testpath}/good.parquet")
-    assert_match "name=Parquet_go_root", output
+    assert_match "name=parquet_go_root", output
   end
 end

@@ -272,12 +272,14 @@ bear
 beautysh
 bed
 bee
+behaviortree.cpp
 bench
 bender
 benthos
 berglas
 bettercap
 bfs
+bgpq3
 bgpq4
 biber
 bibtex-tidy
@@ -344,6 +346,8 @@ broot
 brotli
 brpc
 bruno-cli
+btfs
+btop
 btrfs-progs
 bubblewrap
 buf
@@ -539,9 +543,11 @@ clang-build-analyzer
 clang-format
 clang-uml
 clangql
+clarinet
 claws-mail
 clazy
 clblast
+clearlooks-phenix
 clhep
 cli11
 cli53
@@ -554,6 +560,7 @@ clinfo
 cling
 clingo
 clipboard
+clive
 cljfmt
 cloc
 clojure
@@ -606,6 +613,7 @@ coder
 codesnap
 codespell
 codevis
+codex
 cog
 coin3d
 coinutils
@@ -621,6 +629,7 @@ comtrya
 conan
 conan@1
 concurrencykit
+conda-lock
 conda-zsh-completion
 conduit
 conftest
@@ -631,6 +640,7 @@ contentful-cli
 convco
 convmv
 convox
+cookcli
 cookiecutter
 copa
 copier
@@ -913,6 +923,7 @@ dynare
 dynein
 dysk
 dzr
+e2b
 e2fsprogs
 e2tools
 earthly
@@ -941,6 +952,7 @@ ejabberd
 ejdb
 eksctl
 elan-init
+eleventy
 elfutils
 elfx86exts
 elixir
@@ -1001,6 +1013,7 @@ exim
 exiv2
 exodriver
 exploitdb
+extra-cmake-modules
 exult
 eza
 f2
@@ -1048,6 +1061,7 @@ fdk-aac-encoder
 fdroidcl
 fdroidserver
 fdupes
+fedify
 feh
 feishu2md
 felinks
@@ -1178,6 +1192,7 @@ gabo
 gallery-dl
 gama
 gambit
+gamdl
 game-music-emu
 gammaray
 garble
@@ -1237,6 +1252,7 @@ ginac
 gismo
 git-absorb
 git-annex
+git-bug
 git-cinnabar
 git-cliff
 git-codereview
@@ -1325,6 +1341,7 @@ go-camo
 go-critic
 go-feature-flag-relay-proxy
 go-md2man
+go-parquet-tools
 go-size-analyzer
 go-task
 go@1.23
@@ -1486,6 +1503,7 @@ hcxtools
 heartbeat
 hebcal
 helix
+hellwal
 helm
 helm-docs
 helm-ls
@@ -1679,6 +1697,7 @@ joker
 jolie
 joplin-cli
 jose
+jove
 jp2a
 jpeg-turbo
 jpeg-xl
@@ -1731,6 +1750,7 @@ kamel
 kanata
 kapacitor
 kapp
+karchive
 karmadactl
 kaskade
 katago
@@ -1740,6 +1760,7 @@ kcat
 kcgi
 kcov
 kcptun
+kdoctools
 kea
 keep-sorted
 keeper-commander
@@ -1747,11 +1768,13 @@ keploy
 kepubify
 kerl
 kew
+keychain
 keydb
 keyring
 kfr
 khal
 ki
+ki18n
 kickstart
 kics
 killport
@@ -1783,7 +1806,9 @@ krep
 krew
 ksh93
 ksops
+ktexttemplate
 ktfmt
+ktoblzcheck
 ktor
 kty
 kube-bench
@@ -1807,6 +1832,7 @@ kubergrunt
 kubernetes-cli
 kubernetes-cli@1.30
 kubernetes-cli@1.31
+kubernetes-cli@1.32
 kubescape
 kubeseal
 kubeshark
@@ -1858,6 +1884,7 @@ leaf-proxy
 leakcanary-shark
 lean-cli
 leapp-cli
+ledit
 leetcode-cli
 leetgo
 leetup
@@ -2181,6 +2208,7 @@ lucky-commit
 ludusavi
 luit
 lume
+lunar-date
 lune
 lunzip
 lutok
@@ -2195,6 +2223,7 @@ lz4
 lzip
 lziprecover
 lzlib
+m4
 m68k-elf-gcc
 macchina
 mackup
@@ -2226,6 +2255,7 @@ mapcidr
 mapnik
 mapproxy
 mapserver
+marcli
 mariadb
 mariadb-connector-c
 mariadb-connector-odbc
@@ -2395,6 +2425,8 @@ multi-gitter
 multitail
 muon
 muparser
+mupdf
+mupdf-tools
 murex
 musikcube
 mutt
@@ -2443,6 +2475,7 @@ ne
 neatvi
 nebula
 needle
+nelm
 neo4j
 neocmakelsp
 neomutt
@@ -2454,6 +2487,7 @@ neovim-qt
 nerdctl
 nerdfetch
 nerdfix
+nerdlog
 nest
 nestopia-ue
 netaddr
@@ -2547,6 +2581,7 @@ oauth2_proxy
 oauth2c
 oauth2l
 objfw
+observerward
 ocaml-findlib
 ocaml-zarith
 ocamlbuild
@@ -2774,6 +2809,7 @@ php@8.1
 php@8.2
 php@8.3
 phpmyadmin
+phpstan
 phpunit
 phylum-cli
 pianobar
@@ -2882,6 +2918,7 @@ procps
 procs
 profanity
 proftpd
+prog8
 proj
 projectable
 prometheus
@@ -3080,6 +3117,7 @@ riemann
 riemann-client
 rio
 rip2
+ripgrep-all
 ripsecrets
 riscv64-elf-gcc
 risor
@@ -3598,6 +3636,7 @@ tgui
 thanos
 the-way
 theharvester
+threadweaver
 threatcl
 thrift
 thriftgo
@@ -3627,6 +3666,7 @@ tmt
 tmux-mem-cpu-load
 tmux-sessionizer
 tmux-xpanes
+tmuxai
 tmuxp
 tmx
 toast
@@ -3717,6 +3757,7 @@ umka-lang
 unar
 unbound
 uncover
+undercutf1
 ungit
 uni
 uni-algo
@@ -3764,6 +3805,7 @@ vapoursynth
 varnish
 vault-cli
 vc
+vcftools
 vcluster
 vcsh
 vdirsyncer
@@ -3827,7 +3869,11 @@ vte3
 vtk
 vue-language-server
 vulkan-extensionlayer
+vulkan-headers
+vulkan-loader
 vulkan-profiles
+vulkan-tools
+vulkan-utility-libraries
 vulkan-validationlayers
 vulkan-volk
 vulsio-gost

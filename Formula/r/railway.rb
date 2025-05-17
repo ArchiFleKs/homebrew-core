@@ -1,19 +1,19 @@
 class Railway < Formula
   desc "Develop and deploy code with zero configuration"
   homepage "https://railway.com/"
-  url "https://github.com/railwayapp/cli/archive/refs/tags/v4.4.0.tar.gz"
-  sha256 "b8879601028e9922491f9bcf56f53837d19be655ffa0fd88eb090f3d1b1b3e06"
+  url "https://github.com/railwayapp/cli/archive/refs/tags/v4.5.1.tar.gz"
+  sha256 "65e77d90cb3d642e04a92403bcdfeb0e7417661f01d37c67ff11805f8e798dca"
   license "MIT"
   head "https://github.com/railwayapp/cli.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "72222923f92283a386248aff68e5f5abd8ac44b89a622ed78ffda7b2e9228f46"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "bc308f449b00ca6975ee3d7aec5a27bfa4201126dfec154ba3ddbf13af349a6b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "8f2cdbcdbff1a374e1f44ce5be2fedbc0554811b64061ad1ff99becb91be9c5f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "38db0a107fc460ccf8c7eae0b13f4b1045cd5c19b25090d6904afdb194303107"
-    sha256 cellar: :any_skip_relocation, ventura:       "50c3013b7f2e97b28cc72a7ae44649f267cc41a72c7da19c8bf36490ca978d77"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "020a585c5000ed69e771a9d8d2ee0e07a7ce3e845f0df72fbc7c025026305c91"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2268a935a70b57a4e9c639e0ddab32b33df9714f585bf1b0c45bd1bf5df3729e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "aa3ccabfd1518686094d557340c458a574e5aabe7b86503d83a897c99984a13b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "17755ec6b55e14f157678065460e1776afbe27222ef22bfce14091afd52dd6b8"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "3d617a420c066c05d1025e4f57a064b6701a56b994231c3d0db26a03e65af28d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "7a99d7b4bc8e0a99a5a6ea1ba4967c00c8955755a6cb231c4be43bdc6b69c6a5"
+    sha256 cellar: :any_skip_relocation, ventura:       "0361a2171f7c2150b003e8c422ab140542f0acfea26545df7bcafe5394fefa42"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "911d8aaa4558fdf68c4363992b2ffcaf2d087f04791dc15f4227adc318517222"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "937d91dc990eb698d057a62ab8e35c349c4c3340d2b650b8344965a88efc1c15"
   end
 
   depends_on "rust" => :build
