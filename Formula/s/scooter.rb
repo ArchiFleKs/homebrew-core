@@ -1,18 +1,18 @@
 class Scooter < Formula
   desc "Interactive find and replace in the terminal"
   homepage "https://github.com/thomasschafer/scooter"
-  url "https://github.com/thomasschafer/scooter/archive/refs/tags/v0.4.0.tar.gz"
-  sha256 "19f38c588b11c3c69c8229182f875ac61a529604e6af73c00ed6259dca3880e9"
+  url "https://github.com/thomasschafer/scooter/archive/refs/tags/v0.5.2.tar.gz"
+  sha256 "d01de7df6b47f56f9c436d20da683d799aa263213ec450c929c520a117cc29ef"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "51094fae3c63652eea64bb8349e233f0d0302d17f1524b1c78f1c41987bf9d11"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "82a8664e984452e7a7c2c310b82e7793096d0f349efb1f973acb569cb592bbe3"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "2ae471a22dbc4548051afc05d37baf509a4c6d1b163a6a858c1aed1634fc2846"
-    sha256 cellar: :any_skip_relocation, sonoma:        "092d5767abe9f5633e513ca112ab08c941fce37350802faf04936bac62b2013e"
-    sha256 cellar: :any_skip_relocation, ventura:       "9ed604580f9dce19f5aa4ca3982f54f163650a5c7b1c9700728f2f4944b83d09"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "93494c7aa1e7b2913ccb64abe25d1d180d528482746873cf692e28cfc54f749e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "176e0670fd171ecfabc19f4980ce4486d2ce685c0c2e9a3596ba18b333123eef"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "cbad6442326939adff9103b3c4ce7479e3756204bc5f54137dca5950b1af84ed"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e587b51cf2da699855815cef4f79febeea839d6945dbbbec23bfc0fc571d311e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "89af3731ab10ce6bd11f92046c4a8a72b1e59a96fc04026c6cc1d9a880cd9177"
+    sha256 cellar: :any_skip_relocation, sonoma:        "cac46ed0f8a91f81fa646a64674678090c50bc9dfd0419bc0c5972a172e20a86"
+    sha256 cellar: :any_skip_relocation, ventura:       "e54b805e730323437a03333c86476645f17da0d50624111c1dd4643161a4c08d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6ffe698d514ce64600447a454bb00841bf88af07e258548952a6eb1247040aa2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8c4cfc5932212b668eeda4271a6877ca9a88aee35549daa689b36b044cc23939"
   end
 
   depends_on "rust" => :build

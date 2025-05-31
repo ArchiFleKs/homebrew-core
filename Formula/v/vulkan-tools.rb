@@ -1,8 +1,8 @@
 class VulkanTools < Formula
   desc "Vulkan utilities and tools"
   homepage "https://github.com/KhronosGroup/Vulkan-Tools"
-  url "https://github.com/KhronosGroup/Vulkan-Tools/archive/refs/tags/v1.4.314.tar.gz"
-  sha256 "720f10e8e5a8a816e869ab120a094480ba64c5a025822e88c5766c7938a435e0"
+  url "https://github.com/KhronosGroup/Vulkan-Tools/archive/refs/tags/v1.4.316.tar.gz"
+  sha256 "3d56d577b908e6627891b0f0c0fc5ba5ea9db0620d0a7755e2ef312e3629acbf"
   license "Apache-2.0"
   head "https://github.com/KhronosGroup/Vulkan-Tools.git", branch: "main"
 
@@ -12,16 +12,17 @@ class VulkanTools < Formula
   end
 
   bottle do
-    sha256               arm64_sequoia: "159f11d327656b13876eb551a7c20e60bca06eb58a61f60d4eba18e6b3f96290"
-    sha256               arm64_sonoma:  "b862668fb437539141141610664949281a721b2258c6f2509c8460f15c3976b0"
-    sha256               arm64_ventura: "dd8f35202428007b8bc3bb30ef47bd8aba5e885a920fca449086c1adabec23ad"
-    sha256 cellar: :any, sonoma:        "431a576a4629ebea5065ec1ea774928f413ef4abe9e72769944701cdad25df6e"
-    sha256 cellar: :any, ventura:       "1e7b81a1e4f7f0f8adbfbc45e2e4cdc14caa1f8cd98f6e78fb0b5f5b61c010d1"
-    sha256               arm64_linux:   "3f27b401e0fda20f1d41288ef8009f64ee238c65f1a839d1918debc4b0f400bf"
-    sha256               x86_64_linux:  "85d1364ded0830331760d27e16252b7b962bded67572888e8e4884817351e8b7"
+    sha256               arm64_sequoia: "44d5ca35d9daa626b46cbb4b036e41d61c4a3a57d521eeaad21bb2b21bcc13cd"
+    sha256               arm64_sonoma:  "56b8bb035999445ca2add334090ca462665a300cfc14a944bb3e1f7673143d0d"
+    sha256               arm64_ventura: "7218d30e7092237fd6bb828d307111ce425073e8a53b26da5678d05d404a635a"
+    sha256 cellar: :any, sonoma:        "f9d3e5de515bfd934ae827fa7d65599a4bd01e667211bca0706ddbaa087c4fa4"
+    sha256 cellar: :any, ventura:       "c1393a82b836a326bde4b3b9eec03314aeaf55307830674ae15ef8b1c21cabcb"
+    sha256               arm64_linux:   "97d16390653d9ca9600c9320684341ffa7aca4fa35925a0fe8018d4b679dc643"
+    sha256               x86_64_linux:  "ad0dbafa5e9192dfa0c9815cb1512a487a3c7203107c197f4378942b9a08550a"
   end
 
   depends_on "cmake" => :build
+  depends_on "pkgconf" => :build
   depends_on "python@3.13" => :build
   depends_on "vulkan-volk" => :build
   depends_on "glslang"
@@ -33,7 +34,6 @@ class VulkanTools < Formula
   end
 
   on_linux do
-    depends_on "pkgconf" => :build
     depends_on "libx11"
     depends_on "libxcb"
     depends_on "libxkbfile"

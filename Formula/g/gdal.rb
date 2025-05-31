@@ -1,8 +1,8 @@
 class Gdal < Formula
   desc "Geospatial Data Abstraction Library"
   homepage "https://gdal.org/en/stable/"
-  url "https://github.com/OSGeo/gdal/releases/download/v3.10.3/gdal-3.10.3.tar.gz"
-  sha256 "e4bf7f104acbcb3e2d16c97fd1af2b92b28d0ba59d17d976e3ef08b794f4153b"
+  url "https://github.com/OSGeo/gdal/releases/download/v3.11.0/gdal-3.11.0.tar.gz"
+  sha256 "723d7b04e0f094be2636128d15165b45059ac5e53f143cbbd93280af0b347abd"
   license "MIT"
   revision 1
 
@@ -12,13 +12,13 @@ class Gdal < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "d8bf0145143b711d255fe24ef0ee16b4031fe941422ef51e40f06d62e66a8c04"
-    sha256 arm64_sonoma:  "84312cacf61001e653860c5d1fd0296f7b5f22ce63628bb59022e18b32350e4f"
-    sha256 arm64_ventura: "cbc3283d71933e6178dc7950f4a0f1a6acc3d11cd9375a67cc1af6642b49fad5"
-    sha256 sonoma:        "5ac2efe52ef44082ba7f28b4cb04bab423d726560840decabede12c582c90540"
-    sha256 ventura:       "9c39515965393eb412c6de20c8c15cd466d7045b98ec6831bf98138d432013df"
-    sha256 arm64_linux:   "096541320ef8452d6344521fa223415da04cb678b6fe7a2072be3df6938258e1"
-    sha256 x86_64_linux:  "d980437bd277bd249444110d89816ca7368bfaf350accd21c9620232ed1be783"
+    sha256 arm64_sequoia: "dc9531c2c4651779da397d6879de980e11bc2347a733da358c1a8ebd5b62c1b3"
+    sha256 arm64_sonoma:  "029f81257ef1aca8dbcfb95460f28ac9b2ab177f07413722780f73e9af03038a"
+    sha256 arm64_ventura: "ad3bcf7f00b055a56f68f69a34a080bf7140feabcea9bbfe4c7591d6cdd9bc82"
+    sha256 sonoma:        "9055ffe82344e6868b240491f83c04771eed3bf4451f0ed7389a4a3c45dc0385"
+    sha256 ventura:       "82e51de2a112724da2454c936411650696bad1fdbd40216b9010ff7c9a74a622"
+    sha256 arm64_linux:   "11605d04eecf4643997a3fd17d1cbbfe31b35067517da7acf448f6e678d1040f"
+    sha256 x86_64_linux:  "ea01fe64a6646be61ff4609eec8485622c297d1e5a1d985533bd82998811d801"
   end
 
   head do
@@ -88,13 +88,6 @@ class Gdal < Formula
 
   conflicts_with "avce00", because: "both install a cpl_conv.h header"
   conflicts_with "cpl", because: "both install cpl_error.h"
-
-  # Fix for Poppler 25.05.0, remove in next release
-  # ref: https://github.com/OSGeo/gdal/issues/12269
-  patch do
-    url "https://github.com/OSGeo/gdal/commit/a689e2189ff0a464f3150ed8b2dd5a3cc1194012.patch?full_index=1"
-    sha256 "b3eefe691d6f74c9128aed4c558b8c5d2122a56a93acbf5b424ca67e743c4fb9"
-  end
 
   def python3
     "python3.13"

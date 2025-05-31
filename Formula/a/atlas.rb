@@ -3,19 +3,19 @@ class Atlas < Formula
   homepage "https://atlasgo.io/"
   # Upstream may not mark patch releases as latest on GitHub; it is fine to ship them.
   # See https://github.com/ariga/atlas/issues/1090#issuecomment-1225258408
-  url "https://github.com/ariga/atlas/archive/refs/tags/v0.32.1.tar.gz"
-  sha256 "35b55b79764589429328c639a0505d7e2dc45abfa1dad028d9fe0360636b3b5a"
+  url "https://github.com/ariga/atlas/archive/refs/tags/v0.34.0.tar.gz"
+  sha256 "cd1ca53aeb77444647349e0eb89f3858c217c6fe79d9953b39f7cb2eeaba523e"
   license "Apache-2.0"
   head "https://github.com/ariga/atlas.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "21f2f5b36678dfd98a4164d39e0f83249976e83336c6a934260da7e056c53c54"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "265178ebc14f011da0909663c86a9cd26ab87dcf9a70acfe16aee930f9dd995f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "796dfd14af7ab4ca09df77a5e2762769d7150e04f8aecab355d806a626e83c2d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "5a0194ed0cc8fb74b985e75f971412625db0b7e4b4d9cdabb4696930aa7fd665"
-    sha256 cellar: :any_skip_relocation, ventura:       "acf6138317c218ca6d2eec374210c2dc34d69093b35e652342b0dcade34172e3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "def7166578daebb8f96ecd9c9ef9b71350c6fa4693e11b8b98a3ea18710bf444"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "027e1b307871a24aa03e0478f58dcf2e52a3adc4b390adc4f3f3a3ad4bdbedad"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a34628d4aae3a7c28fe96871f10c48db95fbe49f40ad2b9dccc0fbd8970b8054"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0cd0d44922483dfd35049bcccb24b0efee2b33d6cbae511cf4bbe84b5fa11d2b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "05afa94ec45ed016832aa7fcc0f5bdeaad404a937fe6340caa36a65304d8edd4"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2847bedb226c7d4e374cf5310d1d56593652518cab66d445cbf889ee5e533046"
+    sha256 cellar: :any_skip_relocation, ventura:       "54b2236457ae57ec543aa9aee40ea0b97e50ae469fad6b1461119a992a712661"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0f524b3405654ead0ae0fa30c2670ebdd048ed07cc83da1e6a344c8333ae7c2d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2ead749ee2a3e15417ee7866047ca14740fdf2203dbafb38ee057a08bbffe888"
   end
 
   depends_on "go" => :build
