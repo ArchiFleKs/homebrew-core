@@ -1,8 +1,8 @@
 class Knot < Formula
   desc "High-performance authoritative-only DNS server"
   homepage "https://www.knot-dns.cz/"
-  url "https://knot-dns.nic.cz/release/knot-3.4.5.tar.xz"
-  sha256 "359af70afafa7ccaa18439a7c1eb35270ff9eece81d0756ae4ca716b1433cb4b"
+  url "https://knot-dns.nic.cz/release/knot-3.4.7.tar.xz"
+  sha256 "dd346ca6f3afabcdc5e9ba09dd667b010590bb66a42f4541021fb9d6f073dacc"
   license all_of: ["GPL-3.0-or-later", "0BSD", "BSD-3-Clause", "LGPL-2.0-or-later", "MIT"]
 
   livecheck do
@@ -11,13 +11,13 @@ class Knot < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "fb2a03707bca3a30c4920b387fc26b5bfea3a04194ed0373237d69dd8f5808b2"
-    sha256 arm64_sonoma:  "70c3e6f73fc410caae5d8b61a229f8c26b678d3e7d92ced6eb7e385c79c95026"
-    sha256 arm64_ventura: "781ee000ccc02d1b49270855c65d622c24a44fbf7379e8bffc908155ef09e20a"
-    sha256 sonoma:        "d35aeb28f9d0f3793e0d77c91e8a015584f252981cdfb33aa6f5c0b76820169c"
-    sha256 ventura:       "a46e505e12ba13083f5211cbd0ddec4a1c92d434c4572c33dcc8274a746619f7"
-    sha256 arm64_linux:   "9e36f319c1c0b26372ade4e49936fcf0e7db00aabae7ec187a789e6c382f6dc7"
-    sha256 x86_64_linux:  "c58465073d06cb6ad06de3830b35f12650d5e1741e3026b18fad27277cbfbcb3"
+    sha256 arm64_sequoia: "1fb8278e561ed7d9a99f4ba23c25a88b537dd237e9db452e4b62717c48130841"
+    sha256 arm64_sonoma:  "5234cf8758edf2892799102953dd273394716cc5be1a9841012b269da540d8cb"
+    sha256 arm64_ventura: "a7744ed3ae7ac074e555e500273763bcf8243535b211ee9e2d6bb70dd70ca044"
+    sha256 sonoma:        "bb04dda43aa53b3dbda4ef5aa899c81cccceb6dcaf2cf927a3f4b74a7d24ddc2"
+    sha256 ventura:       "553cdc9c373828a8fb90b87d6f73723f294dc3a0a5021d18eebdccc7b4396750"
+    sha256 arm64_linux:   "9e9a49395d66917fda7c89d86d2df83def6d3d91c4f3a733af2dcf144e6dd806"
+    sha256 x86_64_linux:  "c1f15009c4df1619d610ae555a92c0e1cec16bb65f03183bc7fc25e849127e79"
   end
 
   head do
@@ -41,9 +41,6 @@ class Knot < Formula
   uses_from_macos "libedit"
 
   def install
-    # https://gitlab.nic.cz/knot/knot-dns/-/blob/master/src/knot/modules/rrl/kru-avx2.c
-    ENV.runtime_cpu_detection if Hardware::CPU.intel?
-
     system "autoreconf", "--force", "--install", "--verbose" if build.head?
     system "./configure", "--disable-silent-rules",
                           "--with-configdir=#{etc}",

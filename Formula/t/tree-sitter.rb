@@ -1,8 +1,8 @@
 class TreeSitter < Formula
   desc "Parser generator tool and incremental parsing library"
   homepage "https://tree-sitter.github.io/"
-  url "https://github.com/tree-sitter/tree-sitter/archive/refs/tags/v0.25.3.tar.gz"
-  sha256 "862fac52653bc7bc9d2cd0630483e6bdf3d02bcd23da956ca32663c4798a93e3"
+  url "https://github.com/tree-sitter/tree-sitter/archive/refs/tags/v0.25.6.tar.gz"
+  sha256 "ac6ed919c6d849e8553e246d5cd3fa22661f6c7b6497299264af433f3629957c"
   license "MIT"
   head "https://github.com/tree-sitter/tree-sitter.git", branch: "master"
 
@@ -12,13 +12,13 @@ class TreeSitter < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "3af9b0daa0a0abc67857dfe737b1b3efea32dd2f8839e650d4ab5c7edbfa7498"
-    sha256 cellar: :any,                 arm64_sonoma:  "583a1198bf012237f4d55214f4e229c73e36c2646b039f753b23e88067de2a87"
-    sha256 cellar: :any,                 arm64_ventura: "45f1d76ef7d78f9159f9b362dfc91d22575c5e5a3d4b34cabf5db8c83bfde169"
-    sha256 cellar: :any,                 sonoma:        "077aeb52873a985c5f869cbcfbc62a7c8e135256038b797cd1ca111266b9e386"
-    sha256 cellar: :any,                 ventura:       "2b0e5434ddbaa8b5236aa132a10aa7ad93a78ec40ab14926c2ece1b7f91bf250"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5f79aed3eaf3dc58b2fee7231bf5e7ad9e17b4acd5729e65b6df401bc9259f59"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "79afaf8e3fcbe5cd4bf4e1f72fea4cb77ac6da024da49cbd392db157732c59a3"
+    sha256 cellar: :any,                 arm64_sequoia: "e0bbb0c481ba1bbf10034f02dbc35706ac90feb75a32d74479949f40b445dddc"
+    sha256 cellar: :any,                 arm64_sonoma:  "9783390a41db3df81c8e8ea7821e3fed961e3f555ec7ad7cdc3b898ec83456ac"
+    sha256 cellar: :any,                 arm64_ventura: "acf486817e07c7a3956657e79f7f6fb7911eebf3f4f10c838893302ff351b594"
+    sha256 cellar: :any,                 sonoma:        "81facd00d0a0dd7fc94ed871d0dc42edec9fd2c995c06fd74a27972a77afdd05"
+    sha256 cellar: :any,                 ventura:       "6e0de41547ec2c1f73d0b196b5f93593ae4d59a8bb29472f532662b63f0a3868"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "98aad9636a33ade7ea48df074a249b7afbac23b176603bec1316090376556eaa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a7874824fe9651b94a3afd8207beb33b7facdf2faddc75f5c9844fe12bdec21a"
   end
 
   depends_on "rust" => :build
@@ -27,6 +27,7 @@ class TreeSitter < Formula
   def install
     system "make", "install", "AMALGAMATED=1", "PREFIX=#{prefix}"
     system "cargo", "install", *std_cargo_args(path: "cli")
+    generate_completions_from_executable(bin/"tree-sitter", "complete", shell_parameter_format: :arg)
   end
 
   test do

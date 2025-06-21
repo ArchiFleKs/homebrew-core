@@ -1,8 +1,8 @@
 class Ipv6calc < Formula
   desc "Small utility for manipulating IPv6 addresses"
   homepage "https://www.deepspace6.net/projects/ipv6calc.html"
-  url "https://github.com/pbiering/ipv6calc/archive/refs/tags/4.3.0.tar.gz"
-  sha256 "0255b811b09ddbfb4afdffe639b5eb91406a67134def5230d2c53ac80f8f4dd0"
+  url "https://github.com/pbiering/ipv6calc/archive/refs/tags/4.3.2.tar.gz"
+  sha256 "4335c4edf7d51dbd0cafdd42ecda5598101f7a8ab257a74be2d9ec81f5bf895b"
   license "GPL-2.0-only"
 
   # Upstream creates stable version tags (e.g., `v1.2.3`) before a release but
@@ -14,13 +14,13 @@ class Ipv6calc < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "cb1ee095ca6ad409d22a619adfdc84e0d40f129f1ded51d383fb96c1e5c7c264"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f4a707eb3df85445eeed0e2207a8ff6fbcb5f52f5d555ce96d2bd4961072f885"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "e972c4a4e8ef9b74f037fae1a8f680a8d538bd4346833aada50510eadb2edde9"
-    sha256 cellar: :any_skip_relocation, sonoma:        "72e53c7d306ea9905a00017c1432add44a8745edd47ea423003e4ba8691e3851"
-    sha256 cellar: :any_skip_relocation, ventura:       "2d444dbeef51958c07a302782451deb9c14086f8d858e2f66adb95235464c8b1"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2ef806d99ae229bb9c228dcaf6d69e3991b40bb9cfa9f40b3e1c01b91151974d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c9ac597e58e860837e7db2fa2afc9f0a77260e613438b8fc37301f1f8643ef3f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6d69c91dd743db79707a31234f1efa0e1961469739e4f19726c373f2eef85794"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4810da640d3cd8b97576cf965ec8c711551434c8deb7833a30b93803528b383e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "795b64c67e622b3c16b2b92dac5792c33b96c2c3076ae1e57eecefd5624e3187"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e1e6e255927f430215d8342d57c6208f6f329a1400ab3cbc41e0ecf996bfd1cc"
+    sha256 cellar: :any_skip_relocation, ventura:       "c21cbc228031fef73df1a7ed433eb14c7075c53906c6f3ac27b8b8695d93f5c7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a42d36fb49c632491409e0994f20fbc09abc923208b0147ee5ce4bc2ed5e24a1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "761116624949b91b5e89d1fbb17de07f93ae48f6387d14bc6a9a749ae664389c"
   end
 
   uses_from_macos "perl"

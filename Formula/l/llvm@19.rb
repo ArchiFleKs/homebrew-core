@@ -11,6 +11,8 @@ class LlvmAT19 < Formula
     regex(/^llvmorg[._-]v?(19(?:\.\d+)+)$/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "7b14323528280fe8da37c282cfe3b5b34a9a56f0730c3ce599d165f2c5353a8a"
     sha256 cellar: :any,                 arm64_sonoma:  "5fdcbc697b42d0559d5d5c76ae2f9a17e3a30014eab679b6b591336ce7072dea"
@@ -94,6 +96,11 @@ class LlvmAT19 < Formula
     python_versions = Formula.names
                              .select { |name| name.start_with? "python@" }
                              .map { |py| py.delete_prefix("python@") }
+
+    # Work around build failure (maybe from CMake 4 update) by using environment
+    # variable for https://cmake.org/cmake/help/latest/variable/CMAKE_OSX_SYSROOT.html
+    # TODO: Consider if this should be handled in superenv as impacts other formulae
+    ENV["SDKROOT"] = MacOS.sdk_for_formula(self).path if OS.mac? && MacOS.sdk_root_needed?
 
     # Apple's libstdc++ is too old to build LLVM
     ENV.libcxx if ENV.compiler == :clang
