@@ -1,19 +1,19 @@
 class Ruff < Formula
   desc "Extremely fast Python linter, written in Rust"
   homepage "https://docs.astral.sh/ruff/"
-  url "https://github.com/astral-sh/ruff/archive/refs/tags/0.11.8.tar.gz"
-  sha256 "5513715a202b2dd2516ebb67142d9ea8e52fdd73595dda3eb957804013d33090"
+  url "https://github.com/astral-sh/ruff/archive/refs/tags/0.12.1.tar.gz"
+  sha256 "a234572ee7b97ad82debdda91987e6d34e71cc74d83275e51524335d0506989b"
   license "MIT"
   head "https://github.com/astral-sh/ruff.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7288cfac1d25acf6f5f63137f8779014a74e20b13f1968c563bf1df52f313324"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "249746d73f949184186be89f62eeb9a7795d32cba4fb8252e14330e6478eb27a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "760ac58784f9d94536ceeeec9773418a31bd553968c2557a8f961ff7538a6bbc"
-    sha256 cellar: :any_skip_relocation, sonoma:        "9b7efb1255f533fc8f6453cd1ec053a7b863ed13ce9b22084824411c013b703c"
-    sha256 cellar: :any_skip_relocation, ventura:       "1cb09f9dc9501ad92c87074a310d3fa4b524caa491df128d0527f68805a71872"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ef6181166d511e4f023434d1ce3efe185d7e0181b8fc7bc0547a82c9f477e76e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3ca5651be023a79eddae0ca16c859d18d2d477306e00bd8c9b1c9b709349254c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7550cafa2fd1c56652b0e2b9e9a1105a5c5f80d1a833ecb408646f1f85ed45e0"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a774da9333f80dcb8b75e9705901fafe14ed1ad2217c0813a895a26c0509a061"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "c6c1013b43c4bdc3257f484505a013b8d7e0e5775be38a26bb0bc9eeb453c319"
+    sha256 cellar: :any_skip_relocation, sonoma:        "db2951e27bed00c22bd26f06fe7ec1c6421ad564b9e08b1c1f179fef425e5b09"
+    sha256 cellar: :any_skip_relocation, ventura:       "dafb9647a581fd12f2543f3608c03546c955f29c59d281e71da0e618ce7ab8a4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "db12891e398c5d63970ac2efc973da8c107cbee4f060566bd543c0ccea9a5b9a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fdff8a5825601e1d67f6cca10716149f8d25785079d7bbf8afd14bc93bccda5d"
   end
 
   depends_on "rust" => :build

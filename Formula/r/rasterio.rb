@@ -6,15 +6,17 @@ class Rasterio < Formula
   url "https://files.pythonhosted.org/packages/de/19/ab4326e419b543da623ce4191f68e3f36a4d9adc64f3df5c78f044d8d9ca/rasterio-1.4.3.tar.gz"
   sha256 "201f05dbc7c4739dacb2c78a1cf4e09c0b7265b0a4d16ccbd1753ce4f2af350a"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "78c22b105ddfe5627305ac933da41a879b078f0678696837dc34453bd4a9aaf1"
-    sha256 cellar: :any,                 arm64_sonoma:  "c0772d77c4daf508c53825cba58a5e6619ca380b05a8033a21176f7ffc97967d"
-    sha256 cellar: :any,                 arm64_ventura: "a7f901287973fee54bbbe87c7a98f71cd790e2b941c87118469cc45d6768062d"
-    sha256 cellar: :any,                 sonoma:        "08dcd483af2d7e48cebf0bdb69c0e881d77eb8cdc00f131dd3ffb7e27fb112fa"
-    sha256 cellar: :any,                 ventura:       "b11fc4d43981cd10e892d7a023ad165697ef0205d3a8d29ce5ba4fcd8d29d604"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2fc1257c4bebaf72e821fee8717d3df235bc85ce4fa2f822e2b0c2f64a2d9987"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cb48e6529ce61237e5da0d9f80b495289a53cc7e772d6ed4cc3af55a9f9f0de5"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "4ef36558ac6e8d989f632c769937b8ccd9ced748c0b823db3e5cb71bf9eaa936"
+    sha256 cellar: :any,                 arm64_sonoma:  "7694d294efc5a2d14ab956f41acae3cf82b76a730e665ce21183c9a4ba29fe98"
+    sha256 cellar: :any,                 arm64_ventura: "30e512537c68292a9fd0b94e53a8ac322928fdb5135ffbd99e00cad2a46a8bd2"
+    sha256 cellar: :any,                 sonoma:        "b7a80a3acc90424d3ae0639353194ad86832e84f1584a94bcb5d2d442efc3584"
+    sha256 cellar: :any,                 ventura:       "f226f12cd61b1b188fce44cd8880f9a1146c7dea3e54d948b43c6c8876b2207f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "40cce37129c3b70c087b1c08d38a93946f0fa595f1ea5d29e6f33bf8cc201caa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "03de82be905d85d0b06a221e202f511ff99af401d08d9cd60c2741eb2cb6f00b"
   end
 
   depends_on "cmake" => :build
@@ -29,7 +31,7 @@ class Rasterio < Formula
     depends_on "patchelf" => :build
   end
 
-  conflicts_with "rio", because: "both install `rio` binaries"
+  conflicts_with "rio-terminal", because: "both install `rio` binaries"
   conflicts_with cask: "rio", because: "both install `rio` binaries"
 
   resource "affine" do

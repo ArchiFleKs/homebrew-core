@@ -2,18 +2,18 @@ class AliyunCli < Formula
   desc "Universal Command-Line Interface for Alibaba Cloud"
   homepage "https://github.com/aliyun/aliyun-cli"
   url "https://github.com/aliyun/aliyun-cli.git",
-      tag:      "v3.0.273",
-      revision: "85bad7f187c25b022389df407f09bcc1ad043368"
+      tag:      "v3.0.286",
+      revision: "1af5741c34c913dcee3b2034fa1a48aee1e5254b"
   license "Apache-2.0"
   head "https://github.com/aliyun/aliyun-cli.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "44d295a261b628d3f38a3d340fc45816b6515b9486f1be300e852a98beaa4094"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "44d295a261b628d3f38a3d340fc45816b6515b9486f1be300e852a98beaa4094"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "44d295a261b628d3f38a3d340fc45816b6515b9486f1be300e852a98beaa4094"
-    sha256 cellar: :any_skip_relocation, sonoma:        "93ee79fe821b95c1f370067dd744d2e1e68f029f560873606447bc037999217c"
-    sha256 cellar: :any_skip_relocation, ventura:       "93ee79fe821b95c1f370067dd744d2e1e68f029f560873606447bc037999217c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ddc239941857162ea6637364e3ade096376c1cb5911eb597330d7f38bcfa8fdb"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9b302e1f46a0d44bc1eb778906d89f6ac239c4b95db712ad230b185ae62c27c3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9b302e1f46a0d44bc1eb778906d89f6ac239c4b95db712ad230b185ae62c27c3"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "9b302e1f46a0d44bc1eb778906d89f6ac239c4b95db712ad230b185ae62c27c3"
+    sha256 cellar: :any_skip_relocation, sonoma:        "fe197bf5e6a62f585ed192abcf6b3c8d27e5c945e7ebce0cf4bbb1680dbdda04"
+    sha256 cellar: :any_skip_relocation, ventura:       "fe197bf5e6a62f585ed192abcf6b3c8d27e5c945e7ebce0cf4bbb1680dbdda04"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f3bf69762535234ad2ab3350a94b32b48d314fd7131cd508da24ba5fe71e1323"
   end
 
   depends_on "go" => :build
