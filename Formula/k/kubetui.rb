@@ -1,19 +1,19 @@
 class Kubetui < Formula
   desc "TUI tool for monitoring and exploration of Kubernetes resources"
   homepage "https://github.com/sarub0b0/kubetui"
-  url "https://github.com/sarub0b0/kubetui/archive/refs/tags/v1.7.0.tar.gz"
-  sha256 "1aead11c607c9fcd359dccf2b52c96d223ee32909a06495d9091bd6f531aa407"
+  url "https://github.com/sarub0b0/kubetui/archive/refs/tags/v1.8.1.tar.gz"
+  sha256 "a0ef5951c9d3cebe3712bc6b24af81f74513efbb1f3026895a027b2c71de839a"
   license "MIT"
   head "https://github.com/sarub0b0/kubetui.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "caab723bd87835d56584343054751b248811bc58d2cc38c60f15734ae8fad9de"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "40b807b05e82b8ddc11aaf4b2c86ffeeb16100d413b0c11e18371b48fcff9cb6"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "f477d181b77060691f2373efdd1bca3a7fe09af0d5e55a51e90bb462fb73446e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "810ca3742faf25f03acbbf0c75dc0fc1051fa1a51029cb620eff8cff04b2783d"
-    sha256 cellar: :any_skip_relocation, ventura:       "3524664a3c26ba0e069fe8eab5c662ee94b8e23d7f4ac2824938bb532d663428"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2c33490fa379e38bce16f708d4dde95ea77de2250d319e352dd736606070faa3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "64b0711c87e8e99e4e901a390ce2a2dbf78d51c52475f2417c4e6ae7db917435"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "af5c65e8633605afb2c5dd2a9c194afa8d2ca9b2d3006966bf3b80e00fd88018"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "619d5e940b85926c6b23be8ec71d9c8d53b95cededfcf63432cd10e57a96ee73"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "033dfd6962ac6e9409389a1874c67bbb29cc387e26f8578a5401957e8b6a5107"
+    sha256 cellar: :any_skip_relocation, sonoma:        "4a70b48b0f73ff2f60f04607e96c3b89306b5e1b935d5cd9219cf514293ff67c"
+    sha256 cellar: :any_skip_relocation, ventura:       "8792ed30f3ec5599a7f6d7f9387b99f8a12b5d46fab91443579600b4a5b59bc4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e5467a7878c660291f57d193a848512a93b6b84fb9cbb4de0512e28842ef1e40"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "05dfd07ca20eefcddd209c5c1c2490bee33e5928a673adbf9fb5ad0c35441f0c"
   end
 
   depends_on "rust" => :build

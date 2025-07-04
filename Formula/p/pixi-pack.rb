@@ -1,19 +1,19 @@
 class PixiPack < Formula
   desc "Pack and unpack conda environments created with pixi"
   homepage "https://pixi.sh/latest/advanced/production_deployment/#pixi-pack"
-  url "https://github.com/quantco/pixi-pack/archive/refs/tags/v0.6.2.tar.gz"
-  sha256 "b43c2e227e265e5ff7436e8ec7a6be1df85931cc85a0b4a717be6c26c2760305"
+  url "https://github.com/quantco/pixi-pack/archive/refs/tags/v0.7.1.tar.gz"
+  sha256 "02c9f66d35061ddfbd690a632aafe4415d451762b1e755010a8b33b81285f686"
   license "BSD-3-Clause"
   head "https://github.com/quantco/pixi-pack.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7aed6ef2a54dc1fe2657bcd8ffe50ef2a84c4f2d6600add31773a549683f45df"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6445360dd2f9b6aa00fc44b47d98b2f85b55fbc32dfe4529cff48819130c4e15"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "4faea5fff4fdcb650859d8401131d75e03a6a201cd0e55c42482bff27119089f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "92dc3faa6139f4c53b391872a56ffbcadb37e935c4130b78fb9336b91a3191bc"
-    sha256 cellar: :any_skip_relocation, ventura:       "2593d3e4df6e4ce837c4863b08aa59ff76966ded5c601192798080fe9f4040db"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f318b3add8215af33b50cef27eadbc95c61d5b7b5b0f8930cdec8afa2a24ff4b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2d6b95356e2b2c51e3012731f6f036c58c14858df71cbb734c566d92817fbf1e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "834c04062ce32eb7f89a6ca6b121822d56e32b7871434cec05e8116ab2b3cae4"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2e07c3d3dc051a6b8b9d63c0e88c5d8b962f94e8501d613158d00874e9d1d27d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "7bb22dd8ec26a6582060a5f093d2d7a0da6c0d502ce25997bd49f1157a1c615a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "b8b366f202b2bdd99b5cb62b6bc931cfd5294ea37d2968f05c8860dc5a0f8633"
+    sha256 cellar: :any_skip_relocation, ventura:       "90e1dd960cacc3786283d3b79ed381b4732e45e741583d73e1b35267c13658b6"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a557cadf6884cac72e30c5c5353c9aba5b79ad1e76c52d319f7ed9e6afe33ae5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c500859e059e015e4ea23e07a33eaf88badbb3df79cf23f44c70d9e9eb19a6c9"
   end
 
   depends_on "cmake" => :build
@@ -28,10 +28,14 @@ class PixiPack < Formula
 
   def install
     system "cargo", "install", *std_cargo_args
+
+    generate_completions_from_executable(bin/"pixi-pack", "completion", "-s")
+    generate_completions_from_executable(bin/"pixi-unpack", "completion", "-s")
   end
 
   test do
     assert_equal "pixi-pack #{version}", shell_output("#{bin}/pixi-pack --version").strip
+    assert_equal "pixi-unpack #{version}", shell_output("#{bin}/pixi-unpack --version").strip
 
     (testpath/"pixi.lock").write <<~YAML
       version: 6
@@ -41,16 +45,22 @@ class PixiPack < Formula
           - url: https://conda.anaconda.org/conda-forge/
           packages:
             linux-64:
-            - conda: https://conda.anaconda.org/conda-forge/linux-64/ca-certificates-2024.8.30-hbcca054_0.conda
+            - conda: https://conda.anaconda.org/conda-forge/noarch/ca-certificates-2025.6.15-hbd8a1cb_0.conda
+            linux-aarch64:
+            - conda: https://conda.anaconda.org/conda-forge/noarch/ca-certificates-2025.6.15-hbd8a1cb_0.conda
+            osx-64:
+            - conda: https://conda.anaconda.org/conda-forge/noarch/ca-certificates-2025.6.15-hbd8a1cb_0.conda
+            osx-arm64:
+            - conda: https://conda.anaconda.org/conda-forge/noarch/ca-certificates-2025.6.15-hbd8a1cb_0.conda
       packages:
-      - conda: https://conda.anaconda.org/conda-forge/linux-64/ca-certificates-2024.8.30-hbcca054_0.conda
-        sha256: afee721baa6d988e27fef1832f68d6f32ac8cc99cdf6015732224c2841a09cea
-        md5: c27d1c142233b5bc9ca570c6e2e0c244
-        arch: x86_64
-        platform: linux
+      - conda: https://conda.anaconda.org/conda-forge/noarch/ca-certificates-2025.6.15-hbd8a1cb_0.conda
+        sha256: 7cfec9804c84844ea544d98bda1d9121672b66ff7149141b8415ca42dfcd44f6
+        md5: 72525f07d72806e3b639ad4504c30ce5
+        depends:
+        - __unix
         license: ISC
-        size: 159003
-        timestamp: 1725018903918
+        size: 151069
+        timestamp: 1749990087500
     YAML
 
     (testpath/"pixi.toml").write <<~TOML
@@ -59,7 +69,10 @@ class PixiPack < Formula
       version = "0.1.0"
     TOML
 
-    system bin/"pixi-pack", "pack", "--platform", "linux-64"
+    system bin/"pixi-pack"
     assert_path_exists testpath/"environment.tar"
+    system bin/"pixi-unpack", "environment.tar"
+    assert_path_exists testpath/"env"
+    assert_path_exists testpath/"activate.sh"
   end
 end

@@ -1,8 +1,8 @@
 class OhMyPosh < Formula
   desc "Prompt theme engine for any shell"
   homepage "https://ohmyposh.dev"
-  url "https://github.com/JanDeDobbeleer/oh-my-posh/archive/refs/tags/v25.21.0.tar.gz"
-  sha256 "d0823a1f954805f2837a816792822758075782572f659c65da6f3c4b4e74064d"
+  url "https://github.com/JanDeDobbeleer/oh-my-posh/archive/refs/tags/v26.13.0.tar.gz"
+  sha256 "e4a02b99a5650e987398ca6cd09a7cc10e50c422142563bf74d33c4deb3ac898"
   license "MIT"
   head "https://github.com/JanDeDobbeleer/oh-my-posh.git", branch: "main"
 
@@ -15,12 +15,12 @@ class OhMyPosh < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0bd82a313d5245dc59687f4b5d97fdb07ada8c6a138a3a729168715f13ed8728"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "43823fcbb30e442fa79b1dfa30022499f616d1d38891fba9c0aa384553941f90"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "41cff0c873d8fd3a1363075e3fc9d39e80fc124211499aedab826187b2ee4d43"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f56fd37fd8c72815c2c1cb6109f6c768199140ef5bb02b3d982e9012b8bf93c5"
-    sha256 cellar: :any_skip_relocation, ventura:       "11c4b02017383d9cc6f7067aeb82e275b1096bd9ecfdb0a15d9447f7d5645720"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "409cffe444dd54c1583812935e3d80293d998ed26cd6750bdc923886d81b2cc8"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "54923c71638dd98bce2dba842efcbbe2f80b768f8fbc1635c4f5deae04f46018"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "66b10179399aa1d3ecc1cf46cbd9fa8d2faf24b226818005b52df14da7d68e28"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "046d3eff1dd8709bc9eb0ca6053f2522fa13d8126ff6a831ebfd0e96ab5359e2"
+    sha256 cellar: :any_skip_relocation, sonoma:        "22e10031d659f73f5098814d75adc883856c6680c3601480f9a3d6b85bd05409"
+    sha256 cellar: :any_skip_relocation, ventura:       "98bc02057ef21c1dfaaef658bbf67e8d5304e6fa9a169b23516eb2c18d05a91b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c6b7b15e995b63b7e25b6eb1c00642148ee2367d58f906486d696d2ae472f64a"
   end
 
   depends_on "go" => :build
@@ -41,7 +41,8 @@ class OhMyPosh < Formula
   end
 
   test do
-    assert_match "Oh My Posh", shell_output("#{bin}/oh-my-posh init bash")
     assert_match version.to_s, shell_output("#{bin}/oh-my-posh version")
+    output = shell_output("#{bin}/oh-my-posh init bash")
+    assert_match(%r{.cache/oh-my-posh/init\.#{version}\.default\.\d+\.sh}, output)
   end
 end

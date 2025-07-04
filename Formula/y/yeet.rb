@@ -1,18 +1,18 @@
 class Yeet < Formula
   desc "Packaging tool that lets you declare build instructions in JavaScript"
   homepage "https://github.com/TecharoHQ/yeet"
-  url "https://github.com/TecharoHQ/yeet/archive/refs/tags/v0.2.2.tar.gz"
-  sha256 "157bd064defd2e47c4a0f85fdee92fda51548a27b3a273194ef4dd315147b8e3"
+  url "https://github.com/TecharoHQ/yeet/archive/refs/tags/v0.6.2.tar.gz"
+  sha256 "2ea7d2bb1a37dbb401fdee0b304228b5165caad65e100423504de21aaaece15d"
   license "MIT"
   head "https://github.com/TecharoHQ/yeet.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bd2fe022c2cc94d2cb6997c3eccf7ff7b7ef738f1509a1b69737254b1a250f35"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "bd2fe022c2cc94d2cb6997c3eccf7ff7b7ef738f1509a1b69737254b1a250f35"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "bd2fe022c2cc94d2cb6997c3eccf7ff7b7ef738f1509a1b69737254b1a250f35"
-    sha256 cellar: :any_skip_relocation, sonoma:        "d8a6ca7d3a6a25c07ec08c2177e32ff3fe978e7986d103eb49856728898021f4"
-    sha256 cellar: :any_skip_relocation, ventura:       "d8a6ca7d3a6a25c07ec08c2177e32ff3fe978e7986d103eb49856728898021f4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2dd5767d76731ba8711a36e15c90a326218e8ca2bfa075266af81c7d644a85a5"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1a73b809122ba4331e99f81aa0276ce757ef59f83734c5a9a6c1c8e0e75e6a0b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1a73b809122ba4331e99f81aa0276ce757ef59f83734c5a9a6c1c8e0e75e6a0b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "1a73b809122ba4331e99f81aa0276ce757ef59f83734c5a9a6c1c8e0e75e6a0b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "714bfb59a73c5db4ea5d65240ec2fe72e429f974b5aea08ee9e1de2b4f362d73"
+    sha256 cellar: :any_skip_relocation, ventura:       "714bfb59a73c5db4ea5d65240ec2fe72e429f974b5aea08ee9e1de2b4f362d73"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "65de6d176c3167324e68370c1ba9cd7b8c6ddae2a1b3342c151783e9e8a619b5"
   end
 
   depends_on "go" => :build

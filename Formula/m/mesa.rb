@@ -3,8 +3,8 @@ class Mesa < Formula
 
   desc "Graphics Library"
   homepage "https://www.mesa3d.org/"
-  url "https://archive.mesa3d.org/mesa-25.0.5.tar.xz"
-  sha256 "c0d245dea0aa4b49f74b3d474b16542e4a8799791cd33d676c69f650ad4378d0"
+  url "https://archive.mesa3d.org/mesa-25.1.5.tar.xz"
+  sha256 "3c4f6b10ff6ee950d0ec6ea733cc6e6d34c569454e3d39a9b276de9115a3b363"
   license all_of: [
     "MIT",
     "Apache-2.0", # include/{EGL,GLES*,vk_video,vulkan}, src/egl/generate/egl.xml, src/mapi/glapi/registry/gl.xml
@@ -23,13 +23,13 @@ class Mesa < Formula
   head "https://gitlab.freedesktop.org/mesa/mesa.git", branch: "main"
 
   bottle do
-    sha256 arm64_sequoia: "2867eb2778bc67627995096a265dc435d21eece20f370d5e6d85b781008afed0"
-    sha256 arm64_sonoma:  "2b8c3763c3c6b6cd4c76945aa90d69e4bd6bd1d98aa7f1f10c13bd6ab9b4d786"
-    sha256 arm64_ventura: "67d89edf1f12dd211dedddc1983ffb151177cd7a0ba7a5ed2ec8e6aa20e99dbe"
-    sha256 sonoma:        "c208d4f3630893d1215bfba2b0e074355284e2b6b4df5cef76a7939e8ed89e8e"
-    sha256 ventura:       "6830da7a40476886209d74b767ac6076738ad05b012de0a70901935b15767009"
-    sha256 arm64_linux:   "ebe7316df6a0134c8327461d8c596ffb4f53df36828f22df3a3cfc7d8d0eb1a8"
-    sha256 x86_64_linux:  "9008ed3854010698606aae09655af916c5b9064f4cf77a69d0da8bb1cff56131"
+    sha256 arm64_sequoia: "48bacb046848b7b34b13c9fe6e03e0d05177a2fad45f04162be1d50cfec1d5ed"
+    sha256 arm64_sonoma:  "688126076931b727728c298f203cb7a76912f18b127b9d7f6e4fe6b669d93e23"
+    sha256 arm64_ventura: "c215e2db7fbdd171e656614378fbe72cc91ba8d220e61bf5690e940cbbaa12b3"
+    sha256 sonoma:        "9785fad68f0af212125bb317c1bc8c27e3385ceb168c14552919b39c8135839c"
+    sha256 ventura:       "1134657206a1c5e80a5c78250057aac9b5d03f04bce0323d20269177eff4c97b"
+    sha256 arm64_linux:   "0fd264452178d3904e1750b3ae1db23f0ae46c94ffb6b694209ee9738e9ef038"
+    sha256 x86_64_linux:  "ee1fca8d34279c70bbdb3bcf10349c000f57b55cc6d0b3582293bbe979a89fe9"
   end
 
   depends_on "bindgen" => :build
@@ -60,6 +60,10 @@ class Mesa < Formula
   uses_from_macos "flex" => :build
   uses_from_macos "expat"
   uses_from_macos "zlib"
+
+  on_macos do
+    depends_on "molten-vk"
+  end
 
   on_linux do
     depends_on "directx-headers" => :build
@@ -134,23 +138,24 @@ class Mesa < Formula
     args = %w[
       -Db_ndebug=true
       -Dopengl=true
-      -Dosmesa=true
       -Dstrip=true
       -Dllvm=enabled
-      -Dgallium-drivers=auto
+
       -Dvideo-codecs=all
-      -Dgallium-opencl=icd
       -Dgallium-rusticl=true
     ]
     args += if OS.mac?
-      %w[
+      %W[
+        -Dgallium-drivers=llvmpipe,zink
         -Dvulkan-drivers=swrast
         -Dvulkan-layers=intel-nullhw,overlay,screenshot
-        -Dtools=etnaviv,glsl,nir,nouveau,asahi,imagination,dlclose-skip
+        -Dtools=etnaviv,glsl,nir,nouveau,imagination,dlclose-skip
+        -Dmoltenvk-dir=#{Formula["molten-vk"].prefix}
       ]
     else
       %w[
         -Degl=enabled
+        -Dgallium-drivers=auto
         -Dgallium-extra-hud=true
         -Dgallium-nine=true
         -Dgallium-va=enabled
@@ -181,12 +186,23 @@ class Mesa < Formula
     inreplace lib/"pkgconfig/dri.pc" do |s|
       s.change_make_var! "dridriverdir", HOMEBREW_PREFIX/"lib/dri"
     end
+
+    # https://gitlab.freedesktop.org/mesa/mesa/-/issues/13119
+    if OS.mac?
+      inreplace %W[
+        #{prefix}/etc/OpenCL/vendors/rusticl.icd
+        #{share}/vulkan/explicit_layer.d/VkLayer_MESA_overlay.json
+        #{share}/vulkan/explicit_layer.d/VkLayer_MESA_screenshot.json
+      ] do |s|
+        s.gsub! ".so", ".dylib"
+      end
+    end
   end
 
   test do
     resource "glxgears.c" do
-      url "https://gitlab.freedesktop.org/mesa/demos/-/raw/878cd7fb84b7712d29e5d1b38355ed9c5899a403/src/xdemos/glxgears.c"
-      sha256 "af7927d14bd9cc989347ad0c874b35c4bfbbe9f408956868b1c5564391e21eed"
+      url "https://gitlab.freedesktop.org/mesa/demos/-/raw/8ecad14b04ccb3d4f7084122ff278b5032afd59a/src/xdemos/glxgears.c"
+      sha256 "cbb5a797cf3d2d8b3fce01cfaf01643d6162ca2b0e97d760cc2e5aec8d707601"
     end
 
     resource "gl_wrap.h" do
