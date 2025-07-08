@@ -1,8 +1,8 @@
 class Xk6 < Formula
   desc "Build k6 with extensions"
   homepage "https://k6.io"
-  url "https://github.com/grafana/xk6/archive/refs/tags/v0.19.2.tar.gz"
-  sha256 "059ea134cb054fe3f8dca0af849ce7e3ed513a1cee244adb038921a3a78157df"
+  url "https://github.com/grafana/xk6/archive/refs/tags/v1.0.1.tar.gz"
+  sha256 "d9fe9610daf066ba988363b8a8d8b6b1769c8b1ffb60ce7de25706214390f7a1"
   license "Apache-2.0"
   head "https://github.com/grafana/xk6.git", branch: "master"
 
@@ -12,22 +12,30 @@ class Xk6 < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b05a9d6fe9a247dbcf2cba5a0a8e2fe1eaea1197198f9e3efed7a41e935cbe1c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b05a9d6fe9a247dbcf2cba5a0a8e2fe1eaea1197198f9e3efed7a41e935cbe1c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "b05a9d6fe9a247dbcf2cba5a0a8e2fe1eaea1197198f9e3efed7a41e935cbe1c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "a2d5e3b42e6c29a404211e6e1691fb032ab2e14aab8628fab10fc437c5d6fd60"
-    sha256 cellar: :any_skip_relocation, ventura:       "a2d5e3b42e6c29a404211e6e1691fb032ab2e14aab8628fab10fc437c5d6fd60"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9394c2e3bd325835bcd1d0eb8cd8ee9d0413fb381c945d62a622bd1c53867e16"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "467be00d5f211ebf138622120f0bdab05d6356a531c09a143c24fda0d70aee13"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "467be00d5f211ebf138622120f0bdab05d6356a531c09a143c24fda0d70aee13"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "467be00d5f211ebf138622120f0bdab05d6356a531c09a143c24fda0d70aee13"
+    sha256 cellar: :any_skip_relocation, sonoma:        "78ff3d0ccccb5d6db199d65c9607b9c2500e3b626d756754c73502c7feb8aef7"
+    sha256 cellar: :any_skip_relocation, ventura:       "78ff3d0ccccb5d6db199d65c9607b9c2500e3b626d756754c73502c7feb8aef7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "615f0eab444cc0e1e7eed6f0ef8f1f2250ddeeba8882bd9999b01859a470204d"
   end
 
   depends_on "go"
+  depends_on "gosec"
+  depends_on "govulncheck"
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/xk6"
+    system "go", "build", *std_go_args(ldflags: "-s -w -X go.k6.io/xk6/internal/cmd.version=#{version}")
   end
 
   test do
-    str_build = shell_output("#{bin}/xk6 build")
-    assert_match "xk6 has now produced a new k6 binary", str_build
+    assert_match "xk6 version #{version}", shell_output("#{bin}/xk6 version")
+    assert_match "xk6 has now produced a new k6 binary", shell_output("#{bin}/xk6 build")
+    system bin/"xk6", "new", "github.com/grafana/xk6-testing"
+    chdir "xk6-testing" do
+      lint_output = shell_output("#{bin}/xk6 lint")
+      assert_match "✔ security", lint_output
+      assert_match "✔ vulnerability", lint_output
+    end
   end
 end

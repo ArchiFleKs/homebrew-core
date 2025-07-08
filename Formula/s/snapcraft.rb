@@ -5,10 +5,9 @@ class Snapcraft < Formula
   homepage "https://snapcraft.io/"
   # Use git checkout so setuptools-scm and update-python-resources works
   url "https://github.com/canonical/snapcraft.git",
-      tag:      "8.8.1",
-      revision: "f16a1aedf29e02a4a5589678c1d76a1d698d6ef2"
+      tag:      "8.9.5",
+      revision: "aee7fe47c935bf594a2b8f1712d7df3706b8b8a9"
   license "GPL-3.0-only"
-  revision 1
   head "https://github.com/canonical/snapcraft.git", branch: "main"
 
   livecheck do
@@ -17,12 +16,12 @@ class Snapcraft < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "9f5b53aca62e53ffceea2516be7f4bdb51fcd4f7240c6b32eb53a8ca1d06a14c"
-    sha256 cellar: :any,                 arm64_sonoma:  "e53e316829963af8b4614f6eb01df3526cb9f8f7b83f293a54c4ffb809cb8e03"
-    sha256 cellar: :any,                 arm64_ventura: "a6c8ada91d164868ef19d8424dfc5568d3e0d7864626f88e888b5b49c74f5c97"
-    sha256 cellar: :any,                 sonoma:        "d5e46fc724992e97b6713c2b1d99a52873b9bed2fff3406bbf05ff4c47f98444"
-    sha256 cellar: :any,                 ventura:       "d4e4bdfd88d2f131dd3388030a7acda899637e0768a59472c8ae60792b5d3648"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "168cc401d0ca12c64622005028eccfa872f84a0c6904a6d3aec4920139e38dc5"
+    sha256 cellar: :any,                 arm64_sequoia: "60aa4446c2ce2fd01506d1ddaed242bed87851fe622d61116fcbdc421c54dece"
+    sha256 cellar: :any,                 arm64_sonoma:  "49cbb7ddd8bb721b466ef1f665c9fbb24adb947c2c32f1261037d65c182f143e"
+    sha256 cellar: :any,                 arm64_ventura: "f4bf6bd504a82a602b0086fdc5c0c8c065a479721a78718f713c15d508d668e0"
+    sha256 cellar: :any,                 sonoma:        "5ee23ab4d183f4bc399a285ff9fee04e579e063aa106dae04541c506f8b97ada"
+    sha256 cellar: :any,                 ventura:       "56e4b2175976c4958fa43c811cc7f8e2fb70b7314cc02b33562e6c3eea7a44ec"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4c62e778e4ed1f53690167d92db1ec1b865d3ddd75283036f5dcbd3f7d5a1792"
   end
 
   depends_on "rust" => :build # for pydantic_core
@@ -84,8 +83,8 @@ class Snapcraft < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/16/b0/572805e227f01586461c80e0fd25d65a2115599cc9dad142fee4b747c357/charset_normalizer-3.4.1.tar.gz"
-    sha256 "44251f18cd68a75b56585dd00dae26183e102cd5e0f9f1466e6df5da2ed64ea3"
+    url "https://files.pythonhosted.org/packages/e4/33/89c2ced2b67d1c2a61c19c6751aa8902d46ce3dacb23600a283619f5a12d/charset_normalizer-3.4.2.tar.gz"
+    sha256 "5baececa9ecba31eff645232d59845c07aa030f0c81ee70184a90d35099a0e63"
   end
 
   resource "click" do
@@ -94,8 +93,8 @@ class Snapcraft < Formula
   end
 
   resource "craft-application" do
-    url "https://files.pythonhosted.org/packages/86/86/20bac2f1a4e45097c01040328ff8ffd5313533d03231db08435559c684c3/craft_application-4.10.0.tar.gz"
-    sha256 "7a9cda0e854877fb80464e03274e69b97540a618e0c53cbc500b6fce25b9b8c4"
+    url "https://files.pythonhosted.org/packages/22/19/c5cf1507dba062c5144a198b9dde4a600527490931a581f91e1b1bc5d7e8/craft_application-5.3.0.tar.gz"
+    sha256 "49b0a0d9023f8b7f4f89fe35797e4d3f7de60a8bf1a6421f2d9209e79e60d49d"
   end
 
   resource "craft-archives" do
@@ -114,23 +113,23 @@ class Snapcraft < Formula
   end
 
   resource "craft-parts" do
-    url "https://files.pythonhosted.org/packages/38/af/3a36df71dd40f0267e5f7c5d2b0dbe92886a5170475e3a9876dbf88b2eb4/craft_parts-2.8.0.tar.gz"
-    sha256 "689c0baf4465eed5366bd02580867973cb3285ae3dc43dc9842c87ec37fbd7bc"
+    url "https://files.pythonhosted.org/packages/a9/25/53871293c3101864478812ffa35f72148c2597ceb116786dcf94c7451ce4/craft_parts-2.13.0.tar.gz"
+    sha256 "ed7e56f432f9b55003e196b54a679849d5c42169810e36e52e7a4518a0fe09e1"
   end
 
   resource "craft-platforms" do
-    url "https://files.pythonhosted.org/packages/e7/3b/96f9c7aaf9eca6f677b880029e7c1c160b927d3409f8dc1954d4ccd2a22b/craft_platforms-0.8.0.tar.gz"
-    sha256 "0c18f39aef7caadc7b101aa5123e76b4e32396d3217af7bad1184a5014f29369"
+    url "https://files.pythonhosted.org/packages/70/d5/9fe129a37b5f7d1506af03cad940651cc462cbb69f6791d88a2e6174ca46/craft_platforms-0.9.0.tar.gz"
+    sha256 "08d945625c0bd719181dbb038a22ac897aa2f2b681a8585a911c4360873e33c3"
   end
 
   resource "craft-providers" do
-    url "https://files.pythonhosted.org/packages/16/92/93e3f7adff46a338ae7087ffedab34dd116b329917735677f3205369b931/craft_providers-2.2.0.tar.gz"
-    sha256 "dda4df4f777fbc6fbb4fd72cb85ccd237d07875b80a5c95bc70ace3c22d26b07"
+    url "https://files.pythonhosted.org/packages/69/d9/5c9195dbd410c978ef8f7172ddef7ab86d10f501560ee49dcdae1497e8f4/craft_providers-2.3.0.tar.gz"
+    sha256 "8b9f60d587d118e35e6cf0c28ffffafe5c8e40e3e6c49da3b171a3d18a070ffa"
   end
 
   resource "craft-store" do
-    url "https://files.pythonhosted.org/packages/78/80/edc3cf128f1e3302f0c591539a278b4bd6a09ad23e959f620494ce8cb285/craft_store-3.2.1.tar.gz"
-    sha256 "0c8ae8870362e6e670c0766026849683f6f4563d108a7acca800d4db024a3a21"
+    url "https://files.pythonhosted.org/packages/c5/ee/2a98813fea9fdb592887cdd24c48c3e7adf41cfd0896fdddf0ddc4baccec/craft_store-3.2.2.tar.gz"
+    sha256 "0d7f5236c06a42c5fff23ddcc54fb1e8c3fd3a4d88a4f358b73aabbaa69d41b0"
   end
 
   resource "distro" do
@@ -254,8 +253,8 @@ class Snapcraft < Formula
   end
 
   resource "oauthlib" do
-    url "https://files.pythonhosted.org/packages/6d/fa/fbf4001037904031639e6bfbfc02badfc7e12f137a8afa254df6c4c8a670/oauthlib-3.2.2.tar.gz"
-    sha256 "9859c40929662bec5d64f34d01c99e093149682a3f38915dc0655d5a633dd918"
+    url "https://files.pythonhosted.org/packages/98/8a/6ea75ff7acf89f43afb157604429af4661a9840b1f2cece602b6a13c1893/oauthlib-3.3.0.tar.gz"
+    sha256 "4e707cf88d7dfc22a8cce22ca736a2eef9967c1dd3845efc0703fc922353eeb2"
   end
 
   resource "overrides" do
@@ -269,8 +268,8 @@ class Snapcraft < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/b6/2d/7d512a3913d60623e7eb945c6d1b4f0bddf1d0b7ada5225274c87e5b53d1/platformdirs-4.3.7.tar.gz"
-    sha256 "eb437d586b6a0986388f0d6f74aa0cde27b48d0e3d66843640bfb6bdcdb6e351"
+    url "https://files.pythonhosted.org/packages/fe/8b/3c73abc9c759ecd3f1f7ceff6685840859e8070c4d947c93fae71f6a0bf2/platformdirs-4.3.8.tar.gz"
+    sha256 "3d512d96e16bcb959a814c9f348431070822a6496326a4be0911c40b5a74c2bc"
   end
 
   resource "progressbar" do
@@ -279,8 +278,8 @@ class Snapcraft < Formula
   end
 
   resource "protobuf" do
-    url "https://files.pythonhosted.org/packages/c8/8c/cf2ac658216eebe49eaedf1e06bc06cbf6a143469236294a1171a51357c3/protobuf-6.30.2.tar.gz"
-    sha256 "35c859ae076d8c56054c25b59e5e59638d86545ed6e2b6efac6be0b6ea3ba048"
+    url "https://files.pythonhosted.org/packages/52/f3/b9655a711b32c19720253f6f06326faf90580834e2e83f840472d752bc8b/protobuf-6.31.1.tar.gz"
+    sha256 "d8cac4c982f0b957a4dc73a80e2ea24fab08e679c0de9deb835f4a12d69aca9a"
   end
 
   resource "psutil" do
@@ -289,13 +288,13 @@ class Snapcraft < Formula
   end
 
   resource "pydantic" do
-    url "https://files.pythonhosted.org/packages/10/2e/ca897f093ee6c5f3b0bee123ee4465c50e75431c3d5b6a3b44a47134e891/pydantic-2.11.3.tar.gz"
-    sha256 "7471657138c16adad9322fe3070c0116dd6c3ad8d649300e3cbdfe91f4db4ec3"
+    url "https://files.pythonhosted.org/packages/00/dd/4325abf92c39ba8623b5af936ddb36ffcfe0beae70405d456ab1fb2f5b8c/pydantic-2.11.7.tar.gz"
+    sha256 "d989c3c6cb79469287b1569f7447a17848c998458d49ebe294e975b9baf0f0db"
   end
 
   resource "pydantic-core" do
-    url "https://files.pythonhosted.org/packages/17/19/ed6a078a5287aea7922de6841ef4c06157931622c89c2a47940837b5eecd/pydantic_core-2.33.1.tar.gz"
-    sha256 "bcc9c6fdb0ced789245b02b7d6603e17d1563064ddcfc36f046b61c0c05dd9df"
+    url "https://files.pythonhosted.org/packages/ad/88/5f2260bdfae97aabf98f1778d43f69574390ad787afb646292a638c923d4/pydantic_core-2.33.2.tar.gz"
+    sha256 "7cb8bc3605c29176e1b105350d2e6474142d7c1bd1d9327c4a9bdb46bf827acc"
   end
 
   resource "pyelftools" do
@@ -359,8 +358,8 @@ class Snapcraft < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/63/70/2bf7780ad2d390a8d301ad0b550f1581eadbd9a20f896afe06353c2a2913/requests-2.32.3.tar.gz"
-    sha256 "55365417734eb18255590a9ff9eb97e9e1da868d4ccd6402399eaf68af20a760"
+    url "https://files.pythonhosted.org/packages/e1/0a/929373653770d8a0d7ea76c37de6e41f11eb07559b103b1c02cafb3f7cf8/requests-2.32.4.tar.gz"
+    sha256 "27d0316682c8a29834d3264820024b62a36942083d52caf2f14c0591336d3422"
   end
 
   resource "requests-toolbelt" do
@@ -379,8 +378,8 @@ class Snapcraft < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/bb/71/b6365e6325b3290e14957b2c3a804a529968c77a049b2ed40c095f749707/setuptools-79.0.1.tar.gz"
-    sha256 "128ce7b8f33c3079fd1b067ecbb4051a66e8526e7b65f6cec075dfc650ddfa88"
+    url "https://files.pythonhosted.org/packages/18/5d/3bf57dcd21979b887f014ea83c24ae194cfcd12b9e0fda66b957c69d1fca/setuptools-80.9.0.tar.gz"
+    sha256 "f36b47402ecde768dbfafc46e8e4207b4360c654f1f3bb84475f0a28628fb19c"
   end
 
   resource "simplejson" do
@@ -419,23 +418,23 @@ class Snapcraft < Formula
   end
 
   resource "typing-extensions" do
-    url "https://files.pythonhosted.org/packages/f6/37/23083fcd6e35492953e8d2aaaa68b860eb422b34627b13f2ce3eb6106061/typing_extensions-4.13.2.tar.gz"
-    sha256 "e6c81219bd689f51865d9e372991c540bda33a0379d5573cddb9a3a23f7caaef"
+    url "https://files.pythonhosted.org/packages/d1/bc/51647cd02527e87d05cb083ccc402f93e441606ff1f01739a62c8ad09ba5/typing_extensions-4.14.0.tar.gz"
+    sha256 "8676b788e32f02ab42d9e7c61324048ae4c6d844a399eebace3d4979d75ceef4"
   end
 
   resource "typing-inspection" do
-    url "https://files.pythonhosted.org/packages/82/5c/e6082df02e215b846b4b8c0b887a64d7d08ffaba30605502639d44c06b82/typing_inspection-0.4.0.tar.gz"
-    sha256 "9765c87de36671694a67904bf2c96e395be9c6439bb6c87b5142569dcdd65122"
+    url "https://files.pythonhosted.org/packages/f8/b1/0c11f5058406b3af7609f121aaa6b609744687f1d158b3c3a5bf4cc94238/typing_inspection-0.4.1.tar.gz"
+    sha256 "6ae134cc0203c33377d43188d4064e9b357dba58cff3185f22924610e70a9d28"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/8a/78/16493d9c386d8e60e442a35feac5e00f0913c0f4b7c217c11e8ec2ff53e0/urllib3-2.4.0.tar.gz"
-    sha256 "414bc6535b787febd7567804cc015fee39daab8ad86268f1310a9250697de466"
+    url "https://files.pythonhosted.org/packages/15/22/9ee70a2574a4f4599c47dd506532914ce044817c7752a79b6a51286319bc/urllib3-2.5.0.tar.gz"
+    sha256 "3fc47733c7e419d4bc3f6b3dc2b4f890bb743906a30d56ba4a5bfa4bbff92760"
   end
 
   resource "validators" do
-    url "https://files.pythonhosted.org/packages/64/07/91582d69320f6f6daaf2d8072608a4ad8884683d4840e7e4f3a9dbdcc639/validators-0.34.0.tar.gz"
-    sha256 "647fe407b45af9a74d245b943b18e6a816acf4926974278f6dd617778e1e781f"
+    url "https://files.pythonhosted.org/packages/53/66/a435d9ae49850b2f071f7ebd8119dd4e84872b01630d6736761e6e7fd847/validators-0.35.0.tar.gz"
+    sha256 "992d6c48a4e77c81f1b4daba10d16c3a9bb0dbb79b3a19ea847ff0928e70497a"
   end
 
   resource "wadllib" do

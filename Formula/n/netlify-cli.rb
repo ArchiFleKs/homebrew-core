@@ -1,25 +1,30 @@
 class NetlifyCli < Formula
   desc "Netlify command-line tool"
   homepage "https://www.netlify.com/docs/cli"
-  url "https://registry.npmjs.org/netlify-cli/-/netlify-cli-21.2.0.tgz"
-  sha256 "9a237e7f6fca419dfc7cc42ed34d15927d82a8a0970ceaa165ffac34c46f0608"
+  url "https://registry.npmjs.org/netlify-cli/-/netlify-cli-22.2.2.tgz"
+  sha256 "28be7723acbf67296266d5c6756a40896507c729bf462470a80af9a15c61bd96"
   license "MIT"
-  head "https://github.com/netlify/cli.git", branch: "main"
 
   bottle do
-    sha256                               arm64_sequoia: "2308423d95f0a4a9e7a0104d632b8ef7c72038f7289235a1a689bbf9beb93f1a"
-    sha256                               arm64_sonoma:  "8b8ac1e591db37fdc6d9071c56492a8ceca5882808dfb75b6ab04db1cb8c583e"
-    sha256                               arm64_ventura: "42f90b1c18c524ffdb52239bdd3e8b853b63fabefb19597980866acc6e7c407c"
-    sha256                               sonoma:        "f9c2bc6e7e3b45ccf7d98d2594669f3a417dfec33310cf8c70a2fe020fd7b6c3"
-    sha256                               ventura:       "ea9fe66b51f6bae259d99b332c5a86ab59ce57a8f7bae2666688582f503fa8e2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "72f97a34bd0c6469c954245a6f2863e03a5c6fa988061968ccc4e91670c2df51"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5250f698335c03018e8643fc82d00f0d969d92b8cff740e23ae5a383d11a255b"
+    sha256                               arm64_sequoia: "65c964a30b232065576c7229d488c4c0c9a85e2481828c8131a8c8a67096fd20"
+    sha256                               arm64_sonoma:  "c19c04872f54562f9d160f2ad4782fa7a9be86b6eb622576a3323845f092ed02"
+    sha256                               arm64_ventura: "840d7a85062a76320c80e8c8ed6e9acb00525f12d2984ff6a4f0105d72b9b441"
+    sha256                               sonoma:        "460862e0d8d10608c74593774ee5ffa260cdbea8aaf1c0a76db368df219153d3"
+    sha256                               ventura:       "d4ce1f9498a64937b180dd8f3dab8938aeeeb1eec1aeb0570dcbd1546a8b1668"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d633b033b0f229ff605bfd41342f5459af3c46f716b1ea71c798556cd715b6d1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7a15eebd3abfbf376f57e651861b9b4a8924026405b8b39c3f3ba285afa25a77"
   end
 
+  depends_on "pkgconf" => :build
+  depends_on "glib"
   depends_on "node"
+  depends_on "vips"
+
+  on_macos do
+    depends_on "gettext"
+  end
 
   on_linux do
-    depends_on "glib"
     depends_on "gmp"
     depends_on "vips"
     depends_on "xsel"
@@ -54,6 +59,6 @@ class NetlifyCli < Formula
   end
 
   test do
-    assert_match "Not logged in. Please log in to see site status.", shell_output("#{bin}/netlify status")
+    assert_match "Not logged in. Please log in to see project status.", shell_output("#{bin}/netlify status")
   end
 end

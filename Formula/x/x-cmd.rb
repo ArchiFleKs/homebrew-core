@@ -1,8 +1,8 @@
 class XCmd < Formula
   desc "Bootstrap 1000+ command-line tools in seconds"
   homepage "https://x-cmd.com"
-  url "https://github.com/x-cmd/x-cmd/archive/refs/tags/v0.5.10.tar.gz"
-  sha256 "5142bc8572200191ed1698ee0678dcc87f97190ed435c44345aaa9ad6342b969"
+  url "https://github.com/x-cmd/x-cmd/archive/refs/tags/v0.6.3.tar.gz"
+  sha256 "213e1b7f9351c82bcdcc996891c0a2221785d85c2b6d33c299904036b5b4db47"
   license all_of: ["AGPL-3.0-only", "MIT", "BSD-3-Clause"]
 
   head "https://github.com/x-cmd/x-cmd.git", branch: "X"
@@ -13,13 +13,13 @@ class XCmd < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3cb0b1efc95f9cbf5a8f9c56f3872fd99dcfb15c6f36559ffeede268db2337e2"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3cb0b1efc95f9cbf5a8f9c56f3872fd99dcfb15c6f36559ffeede268db2337e2"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "3cb0b1efc95f9cbf5a8f9c56f3872fd99dcfb15c6f36559ffeede268db2337e2"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f8f827d60c24b936ac5eeb51fe7ae12b07f93ee16709a5ebc3133dbef7bdb4ee"
-    sha256 cellar: :any_skip_relocation, ventura:       "f8f827d60c24b936ac5eeb51fe7ae12b07f93ee16709a5ebc3133dbef7bdb4ee"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1341aa04b4102c35a4d9005d420546971d7d95e1cb0e874920378e0274f5aaa3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1341aa04b4102c35a4d9005d420546971d7d95e1cb0e874920378e0274f5aaa3"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "190373f69d5b6c8fe1f4a4a3d237e6ef36e9c4bf7339c188ea69494dd09816f8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "190373f69d5b6c8fe1f4a4a3d237e6ef36e9c4bf7339c188ea69494dd09816f8"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "190373f69d5b6c8fe1f4a4a3d237e6ef36e9c4bf7339c188ea69494dd09816f8"
+    sha256 cellar: :any_skip_relocation, sonoma:        "22720cbc4b2d4905436f7758174a7c7a3eb5a587b0c3f1be97f1b1a809fe4d37"
+    sha256 cellar: :any_skip_relocation, ventura:       "22720cbc4b2d4905436f7758174a7c7a3eb5a587b0c3f1be97f1b1a809fe4d37"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "70a491fdf7ec078aeb15ccbc997dd935a76a89a534ec05c477cb9bc55662f16e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "70a491fdf7ec078aeb15ccbc997dd935a76a89a534ec05c477cb9bc55662f16e"
   end
 
   def install

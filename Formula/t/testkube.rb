@@ -1,8 +1,8 @@
 class Testkube < Formula
   desc "Kubernetes-native framework for test definition and execution"
   homepage "https://testkube.io"
-  url "https://github.com/kubeshop/testkube/archive/refs/tags/v2.1.148.tar.gz"
-  sha256 "bdd1b73f914dfcd76e7bcd5c9e5103b3b8aec39da24f9c35b1b439b88dd1ba5f"
+  url "https://github.com/kubeshop/testkube/archive/refs/tags/v2.1.161.tar.gz"
+  sha256 "59d7a02c907d6f22476f360a21d98c999ed2bef0f2b822ec129fe36d5d2718c5"
   license "MIT"
   head "https://github.com/kubeshop/testkube.git", branch: "main"
 
@@ -12,12 +12,12 @@ class Testkube < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "73839a7d72e0f0afc907793d6663ed3f3f36bf78485cc32272c995285a18f0f3"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "73839a7d72e0f0afc907793d6663ed3f3f36bf78485cc32272c995285a18f0f3"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "73839a7d72e0f0afc907793d6663ed3f3f36bf78485cc32272c995285a18f0f3"
-    sha256 cellar: :any_skip_relocation, sonoma:        "88d460d0ab6091e89139b156f5e6c18f831058b6088a2fa21e8fc4b1d7716e41"
-    sha256 cellar: :any_skip_relocation, ventura:       "88d460d0ab6091e89139b156f5e6c18f831058b6088a2fa21e8fc4b1d7716e41"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f0e2e1e96a0b2a9ba324f806bf78f0898e9b3a91a198670d47a0c7c044ae42e9"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9f67c3a58a4c323e2731c70290a193dd8b9dab6b0bc985255cbbd1bd3e312a83"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9f67c3a58a4c323e2731c70290a193dd8b9dab6b0bc985255cbbd1bd3e312a83"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "9f67c3a58a4c323e2731c70290a193dd8b9dab6b0bc985255cbbd1bd3e312a83"
+    sha256 cellar: :any_skip_relocation, sonoma:        "bd07c592ce85ec0c45305aa2117ab87846eb84e982fa7603225c10d185d1e5bb"
+    sha256 cellar: :any_skip_relocation, ventura:       "bd07c592ce85ec0c45305aa2117ab87846eb84e982fa7603225c10d185d1e5bb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cb93d1d65e115b70dcf1a2d0af98de6861b8b5ed27f3912b13b78c24d5dafbdd"
   end
 
   depends_on "go" => :build
